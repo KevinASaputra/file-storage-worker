@@ -1,0 +1,10 @@
+name = "file-storage-worker"
+main = "src/index.ts"
+compatibility_date = "2026-04-18"
+
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "file-storage-worker"
+
+[vars]
+PUBLIC_BASE_URL = "https://kevin-filehub.your-subdomain.workers.dev"
