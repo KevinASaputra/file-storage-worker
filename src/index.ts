@@ -51,8 +51,6 @@ export default {
         ]
       });
     }
-
-    // LIST FILES
     if (path === "/list") {
       const objects = await env.FILES.list();
       return json({
@@ -64,7 +62,6 @@ export default {
       });
     }
 
-    // UPLOAD FILE
     if (path.startsWith("/upload/") && request.method === "PUT") {
       const token = url.searchParams.get("token");
       if (token !== ADMIN_TOKEN) return unauthorized();
@@ -83,7 +80,6 @@ export default {
       });
     }
 
-    // DELETE FILE
     if (path.startsWith("/delete/") && request.method === "DELETE") {
       const token = url.searchParams.get("token");
       if (token !== ADMIN_TOKEN) return unauthorized();
@@ -97,7 +93,6 @@ export default {
       });
     }
 
-    // DOWNLOAD
     if (path.startsWith("/download/")) {
       const filename = decodeURIComponent(path.replace("/download/", ""));
       const object = await env.FILES.get(filename);
@@ -115,7 +110,6 @@ export default {
       });
     }
 
-    // VIEW INLINE
     if (path.startsWith("/view/")) {
       const filename = decodeURIComponent(path.replace("/view/", ""));
       const object = await env.FILES.get(filename);
